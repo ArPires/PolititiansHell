@@ -31,16 +31,22 @@ public class Player implements KeyboardHandler {
         right.setKey(KeyboardEvent.KEY_RIGHT);
         right.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
         k.addEventListener(right);
+
+        KeyboardEvent shot = new KeyboardEvent();
+        shot.setKey(KeyboardEvent.KEY_SPACE);
+        shot.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        k.addEventListener(shot);
+
     }
 
     public void moveLeft() {
-        if(rectangle.getX() > 0) {
+        if(rectangle.getX() > 10) {
             rectangle.translate(-10 , 0);
         }
     }
 
     public void moveRight() {
-        if(rectangle.getX() < 500) {
+        if(rectangle.getX() < Field.WIDTH - 40) {
 
             rectangle.translate(10,0);
         }
@@ -56,6 +62,7 @@ public class Player implements KeyboardHandler {
             this.moveRight();
         }
     }
+
 
     @Override
     public void keyReleased(KeyboardEvent e) {}
